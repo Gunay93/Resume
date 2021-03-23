@@ -594,7 +594,7 @@ blockquote {
   top: 0;
   height: 100%;
   z-index: 300;
-  width: 250px;
+  width: 200px;
   background-color: #17181B;
   overflow: auto;
   left: 0;
@@ -725,7 +725,7 @@ header .header-mobile {
     height: 100%;
     position: absolute;
     top: 0;
-    left: 50px;
+    left: 0;
     opacity: 0;
     visibility: hidden;
     overflow: auto;
@@ -1399,9 +1399,8 @@ header .header-mobile {
     margin-top: 0; } }
 
 @media screen and (max-width: 767px) {
-  .site-main .pt-page{left:0}
   header .header-main {
-    left: -250px;
+    left: -200px;
     -webkit-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out; }
