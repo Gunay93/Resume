@@ -1,0 +1,65 @@
+.header-main .image-container .header-name:before {
+  background-color: #c8b11e; }
+
+.page-heading h2 {
+  color: #c8b11e; }
+
+.page-heading .icon {
+  color: #c8b11e; }
+
+.subheading h3 {
+  border-color: #c8b11e !important; }
+  .subheading h3:before, .subheading h3:after {
+    background-color: #c8b11e; }
+
+.banner-section p .cd-words-wrapper b {
+  border-color: #c8b11e !important; }
+
+.about-info ul li span.title {
+  border-color: #c8b11e !important; }
+
+.btn-main {
+  border-color: #c8b11e !important;
+  color: #c8b11e; }
+  .btn-main:after {
+    background-color: #c8b11e; }
+
+.services .service-item .icon {
+  color: #c8b11e !important; }
+
+.testimonial-item .testimonial-content:before {
+  color: #c8b11e !important; }
+
+ul.experience li span.line-left, ul.education li span.line-left {
+  background-color: #c8b11e !important; }
+  ul.experience li span.line-left:before, ul.experience li span.line-left:after, ul.education li span.line-left:before, ul.education li span.line-left:after {
+    border-color: #c8b11e !important; }
+
+ul.experience .content h5, ul.education .content h5 {
+  color: #c8b11e; }
+
+.progress .progress-bar {
+  background-color: #c8b11e; }
+  .progress .progress-bar:after {
+    border-bottom-color: #c8b11e; }
+
+.portfolio-section .portfolio-filter ul li.active {
+  background-color: #c8b11e; }
+
+.portfolio-section .item figure:before {
+  background-color: #c8b11e; }
+
+.ajax-portfolio-popup .information span.title {
+  color: #c8b11e; }
+
+.blog-section .blog-item .blog-content .cat {
+  color: #c8b11e; }
+
+.contact-info .info-item .icon {
+  color: #c8b11e; }
+
+blockquote {
+  border-color: #c8b11e !important; }
+
+.blog-page .blog-heading .cat {
+  color: #c8b11e; }
