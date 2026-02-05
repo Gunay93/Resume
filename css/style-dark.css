@@ -403,7 +403,7 @@ a:focus {
       border: 15px solid transparent;
       border-bottom: 21px solid transparent;
       position: absolute;
-      top: -26px;
+      top: -25px;
       right: -12px;
       border-bottom-color: #fff; }
   .progress .progress-value {
