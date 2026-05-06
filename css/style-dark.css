@@ -1016,7 +1016,7 @@ header .header-mobile {
   .portfolio-section .portfolio-filter {
     margin-bottom: 30px; }
     .portfolio-section .portfolio-filter ul {
-      display: inline-block;
+      /* display: inline-block; */
       margin: 0 auto;
       -webkit-border-radius: 27px;
       border-radius: 27px;
