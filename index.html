@@ -399,24 +399,35 @@
 
                         <div class="row">
                             <!--Portfolio Filter-->
-<div class="col-md-12 portfolio-filter ">
-                                <ul>
-                                <h5 class="mb-2">Texnologiyalar</h5>
-                                <ul class="mb-4">
-                                    <li class="active" data-filter="*">Hamısı</li>
-                                    <li data-filter=".react">React</li>
-                                    <li data-filter=".layout">HTML/CSS/JS</li>
-                                </ul>
-                                <ul>
-                                <h5 class="mb-2">Kateqoriyalar</h5>
-                                <ul class="mb-4">
-                                    <li class="active" data-filter="*">Hamısı</li>
-                                    <li data-filter=".tehsil">elm & təhsil</li>
-                                    <li data-filter=".moda">moda & sağlamlıq</li>
-                                    <li data-filter=".insaat">inşaat</li>
-                                    <li data-filter=".satis">satış</li>
-                                </ul>
-                            </div>
+<div class="col-md-12">
+
+    <!-- TAB BUTTONS -->
+    <div class="portfolio-tabs mb-3">
+        <button class="tab-btn active" data-tab="tech">Texnologiyalar</button>
+        <button class="tab-btn" data-tab="category">Kateqoriyalar</button>
+    </div>
+
+    <!-- TEXNOLOGIYALAR -->
+    <div class="tab-content active" id="tech">
+        <ul class="mb-4">
+            <li class="active" data-filter="*">Hamısı</li>
+            <li data-filter=".react">React</li>
+            <li data-filter=".layout">HTML/CSS/JS</li>
+        </ul>
+    </div>
+
+    <!-- KATEQORIYALAR -->
+    <div class="tab-content" id="category">
+        <ul class="mb-4">
+            <li class="active" data-filter="*">Hamısı</li>
+            <li data-filter=".tehsil">Elm & Təhsil</li>
+            <li data-filter=".moda">Moda & Sağlamlıq</li>
+            <li data-filter=".insaat">İnşaat</li>
+            <li data-filter=".satis">Satış</li>
+        </ul>
+    </div>
+
+</div>
                         </div>
 
                         <!--Portfolio Items-->
