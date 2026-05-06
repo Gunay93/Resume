@@ -309,13 +309,43 @@ const contents = document.querySelectorAll(".tab-content");
 tabs.forEach(btn => {
     btn.addEventListener("click", () => {
 
-        // active button
+        
         tabs.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        // show correct content
+        
         contents.forEach(c => c.classList.remove("active"));
         document.getElementById(btn.dataset.tab).classList.add("active");
+
+        
+        document.querySelectorAll(".tab-content ul").forEach(ul => {
+            ul.querySelectorAll("li").forEach(li => li.classList.remove("active"));
+            ul.querySelector('li[data-filter="*"]').classList.add("active");
+        });
+
+        
+        if (window.$grid) {
+            $grid.isotope({ filter: "*" });
+        }
+    });
+});
+const filterItems = document.querySelectorAll(".tab-content li");
+
+filterItems.forEach(item => {
+    item.addEventListener("click", function () {
+
+        const parent = this.parentElement;
+
+        // yalnız öz siyahısında active dəyiş
+        parent.querySelectorAll("li").forEach(li => li.classList.remove("active"));
+        this.classList.add("active");
+
+        // filter tətbiq et (Isotope istifadə edirsənsə)
+        const filterValue = this.getAttribute("data-filter");
+
+        if (window.$grid) {
+            $grid.isotope({ filter: filterValue });
+        }
     });
 });
 
