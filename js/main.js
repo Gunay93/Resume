@@ -309,19 +309,21 @@ const contents = document.querySelectorAll(".tab-content");
 tabs.forEach(btn => {
     btn.addEventListener("click", () => {
 
-        
         tabs.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        
         contents.forEach(c => c.classList.remove("active"));
-        document.getElementById(btn.dataset.tab).classList.add("active");
+        const activeContent = document.getElementById(btn.dataset.tab);
+        activeContent.classList.add("active");
 
         
-        document.querySelectorAll(".tab-content ul").forEach(ul => {
-            ul.querySelectorAll("li").forEach(li => li.classList.remove("active"));
-            ul.querySelector('li[data-filter="*"]').classList.add("active");
+        const allBtn = activeContent.querySelector('li[data-filter="*"]');
+
+        activeContent.querySelectorAll("li").forEach(li => {
+            li.classList.remove("active");
         });
+
+        allBtn.classList.add("active");
 
         
         if (window.$grid) {
@@ -329,23 +331,5 @@ tabs.forEach(btn => {
         }
     });
 });
-const filterItems = document.querySelectorAll(".tab-content li");
 
-filterItems.forEach(item => {
-    item.addEventListener("click", function () {
-
-        const parent = this.parentElement;
-
-        // yalnız öz siyahısında active dəyiş
-        parent.querySelectorAll("li").forEach(li => li.classList.remove("active"));
-        this.classList.add("active");
-
-        // filter tətbiq et (Isotope istifadə edirsənsə)
-        const filterValue = this.getAttribute("data-filter");
-
-        if (window.$grid) {
-            $grid.isotope({ filter: filterValue });
-        }
-    });
-});
 
