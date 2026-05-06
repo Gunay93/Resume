@@ -1385,7 +1385,32 @@ header .header-mobile {
       .blog-page .blog-comments .comment-list .comment .comment-text p {
         color: #fff;
         font-size: 15px; }
+.portfolio-tabs {
+    display: flex;
+    gap: 10px;
+}
 
+.tab-btn {
+    background: transparent;
+    border: 1px solid #d4b000;
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.tab-btn.active {
+    background: #d4b000;
+    color: #000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 /*============ 12. Mobile Responsive Css ============*/
 @media screen and (max-width: 991px) {
   .about-section .about-info {
