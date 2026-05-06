@@ -303,3 +303,19 @@ function showAlertBox(response, message) {
     $alContainer.fadeIn(300).delay(2000).fadeOut(400);
 }
 
+const tabs = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+
+tabs.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // active button
+        tabs.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // show correct content
+        contents.forEach(c => c.classList.remove("active"));
+        document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+});
+
