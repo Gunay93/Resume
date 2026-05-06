@@ -1,46 +1,37 @@
+/*================ GLOBAL =================*/
+var $grid;
+
+/*======== WINDOW LOAD ========*/
 $(window).on('load', function() {
 
     /*======== Preloader ========*/
     $(".loader").fadeOut();
     $(".preloader").delay(1000).fadeOut();
 
-
     /*======== Isotope Portfolio Setup ========*/
-    let $grid; 
+    if ($('.portfolio-items').length) {
 
-    if( $('.portfolio-items').length ) {
-
-        var $elements = $(".portfolio-items"),
-            $filters = $('.portfolio-filter ul li');
-
-        $grid = $elements.isotope({
+        $grid = $(".portfolio-items").isotope({
             itemSelector: '.item',
             layoutMode: 'fitRows'
         });
 
-        $filters.on('click', function(){
+        // FILTER CLICK
+        $('.portfolio-filter ul li').on('click', function () {
 
+            // yalnız öz UL-də active dəyiş
             $(this).closest('ul').find('li').removeClass('active');
             $(this).addClass('active');
 
-            var selector = $(this).data('filter');
+            var selector = $(this).attr('data-filter');
 
-            $grid.isotope({
-                filter: selector,
-                hiddenStyle: {
-                    transform: 'scale(.2) skew(30deg)',
-                    opacity: 0
-                },
-                visibleStyle: {
-                    transform: 'scale(1) skew(0deg)',
-                    opacity: 1,
-                },
-                transitionDuration: '.5s'
+            $grid.isotope('arrange', {
+                filter: selector
             });
         });
     }
 
-    /*======== Blogs Masonry Setup ========*/
+    /*======== Blogs Masonry ========*/
     $('.blogs-masonry').isotope({ layoutMode: 'moduloColumns' });
 
     $('#video-container video').attr('playsinline', '');
@@ -49,44 +40,38 @@ $(window).on('load', function() {
 });
 
 
-/*======== Document Ready Function ========*/
+/*======== DOCUMENT READY ========*/
 $(document).ready(function() {
 
     "use strict";
 
-    /*======== SimpleBar Setup ========*/
+    /*======== SimpleBar ========*/
     $('.pt-page').each(function() {
-        var $id = '#' + $(this).attr('id');
-        new SimpleBar($($id)[0]);
+        new SimpleBar(this);
     });
 
-    /*======== Fitty Setup ========*/
+    /*======== Fitty ========*/
     fitty('.header-name', {
         multiLine: false,
         maxSize: 20,
         minSize: 10
     });
 
-    /*======== Active Current Link ========*/
-    $('.nav-menu a').on('click',function() {
-        if($('.header-content.on').length) {
-            $('.header-content').removeClass('on');
-        }
+    /*======== Menu ========*/
+    $('.nav-menu a').on('click', function() {
+        $('.header-content').removeClass('on');
     });
 
-    /*======== Mobile Toggle Click Setup ========*/
     $('.header-toggle').on('click', function() {
         $('header .header-content').toggleClass('on');
     });
 
-    /*========Clients OwlCarousel Setup========*/
+    /*======== Carousel ========*/
     $(".clients .owl-carousel").owlCarousel({
         loop: true,
         margin: 30,
         autoplay: true,
         smartSpeed: 500,
-        responsiveClass: true,
-        autoplayHoverPause: true,
         dots: false,
         responsive: {
             0: { items: 2 },
@@ -96,70 +81,31 @@ $(document).ready(function() {
         },
     });
 
-    /*========Testimonials OwlCarousel Setup========*/
     $(".testimonials .owl-carousel").owlCarousel({
         loop: true,
         margin: 30,
         autoplay: true,
         smartSpeed: 500,
-        responsiveClass: true,
         dots: false,
-        autoplayHoverPause: true,
         responsive: {
             0: { items: 1 },
-            800: { items: 1 },
             1000: { items: 2 },
         },
     });
 
-    /*======== Skills Progress Animation ========*/
-    if($('.skills').length > 0) {
-        var el = new SimpleBar($('#resume')[0]).getScrollElement();
-
-        $(el).on('scroll', function() {
-
-            $('.progress .progress-bar').each(function() {
-                var bottom_object = $(this).offset().top + $(this).outerHeight();
-                var bottom_window = $(window).scrollTop() + $(window).height();
-                var progressWidth = $(this).data('progress-value') + '%';
-
-                if (bottom_window > bottom_object) {
-                    $(this).css({ width: progressWidth });
-
-                    $(this).find('.progress-value').animate({
-                        countNum: parseInt(progressWidth, 10)
-                    }, {
-                        duration: 2000,
-                        easing: 'swing',
-                        step: function() {
-                            $(this).text(Math.floor(this.countNum) + '%');
-                        },
-                        complete: function() {
-                            $(this).text(this.countNum + '%');
-                        }
-                    });
-                }
-            });
-
-        });
-    }
-
-    /*======== Portfolio Image Link Setup ========*/
+    /*======== Portfolio Popup ========*/
     $('.portfolio-items .image-link').magnificPopup({
         type: 'image',
         gallery: { enabled: true }
     });
 
-    /*======== Portfolio Video Link Setup ========*/
     $('.portfolio-items .video-link').magnificPopup({
         type: 'iframe',
         gallery: { enabled: true }
     });
 
-    /*======== Portfolio Ajax Link Setup ========*/
     ajaxPortfolioSetup($('.portfolio-items .ajax-link'), $('.ajax-portfolio-popup'));
 
-    /*======== Portfolio Tilt Setup ========*/
     $('#portfolio .item figure').tilt({
         maxTilt: 3,
         glare: true,
@@ -167,34 +113,119 @@ $(document).ready(function() {
         reverse: true
     });
 
-    /*======== Contact Form Setup ========*/
+    /*======== Contact ========*/
     contactFormSetup();
 });
 
 
-/*********** TAB SYSTEM (FIXED) **********/
-const tabs = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
-
-tabs.forEach(btn => {
+/*======== TAB SYSTEM (ƏSAS FIX BURDA) ========*/
+document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
 
-        tabs.forEach(b => b.classList.remove("active"));
+        // TAB ACTIVE
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        contents.forEach(c => c.classList.remove("active"));
+        // CONTENT CHANGE
+        document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
         const activeContent = document.getElementById(btn.dataset.tab);
         activeContent.classList.add("active");
 
-        activeContent.querySelectorAll("li").forEach(li => {
-            li.classList.remove("active");
-        });
-
+        // 🔥 həmin tabda HAMISI aktiv et
+        activeContent.querySelectorAll("li").forEach(li => li.classList.remove("active"));
         const allBtn = activeContent.querySelector('li[data-filter="*"]');
         if (allBtn) allBtn.classList.add("active");
 
-        if (typeof $grid !== "undefined") {
-            $grid.isotope({ filter: "*" });
+        // 🔥 FILTER RESET (ƏN VACİB)
+        if ($grid) {
+            $grid.isotope('arrange', { filter: '*' });
         }
     });
 });
+
+
+/*********** AJAX PORTFOLIO **********/
+function ajaxPortfolioSetup($ajaxLink, $ajaxContainer) {
+
+    $ajaxLink.on('click', function(e) {
+
+        var link = $(this).attr('href');
+        if(link === "#") return e.preventDefault();
+
+        $ajaxContainer.find('.popup-content').empty();
+        $ajaxContainer.addClass('on');
+
+        $.ajax({
+            url: link,
+            beforeSend: function() {
+                $ajaxContainer.find('.ajax-loader').show();
+            },
+            success: function(result) {
+                $ajaxContainer.find('.popup-content').html(result);
+            },
+            complete: function() {
+                $ajaxContainer.find('.ajax-loader').hide();
+            }
+        });
+
+        e.preventDefault();
+    });
+
+    $ajaxContainer.find('.popup-close').on('click', function() {
+        $ajaxContainer.removeClass('on');
+    });
+}
+
+
+/********** CONTACT FORM **********/
+function contactFormSetup() {
+
+    $('.input__field').on('keyup', function() {
+        $(this).parent().toggleClass('input--filled', !!$(this).val());
+    });
+
+    $('#contact-form').on('submit', function(e) {
+        e.preventDefault();
+
+        var required = 0;
+
+        $('.cf-validate', this).each(function() {
+            if(!$(this).val()) {
+                $(this).addClass('cf-error');
+                required++;
+            } else {
+                $(this).removeClass('cf-error');
+            }
+        });
+
+        if(required === 0) {
+            $.post('mail.php', {
+                cf_name: $('#cf-name').val(),
+                cf_email: $('#cf-email').val(),
+                cf_message: $('#cf-message').val()
+            }, function(data) {
+                $("#contact-form .input__field").val("");
+                showAlertBox(data.status, data.responseText);
+            });
+        }
+    });
+}
+
+
+/********** ALERT **********/
+function showAlertBox(response, message) {
+
+    var $alertBox = $('<div class="alert"></div>');
+
+    if(response == 200) {
+        $alertBox.addClass('alert-success').html(message);
+    } else {
+        $alertBox.addClass('alert-danger').html(message);
+    }
+
+    $('#contact-form .alert-container')
+        .html($alertBox)
+        .fadeIn(300)
+        .delay(2000)
+        .fadeOut(400);
+}
