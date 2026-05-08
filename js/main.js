@@ -131,12 +131,12 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
         const activeContent = document.getElementById(btn.dataset.tab);
         activeContent.classList.add("active");
 
-        // 🔥 həmin tabda HAMISI aktiv et
+        
         activeContent.querySelectorAll("li").forEach(li => li.classList.remove("active"));
         const allBtn = activeContent.querySelector('li[data-filter="*"]');
         if (allBtn) allBtn.classList.add("active");
 
-        // 🔥 FILTER RESET (ƏN VACİB)
+        
         if ($grid) {
             $grid.isotope('arrange', { filter: '*' });
         }
