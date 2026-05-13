@@ -1041,6 +1041,7 @@ header .header-mobile {
 .portfolio-section {
   overflow: hidden; }
   .portfolio-section .item {
+    overflow:hidden;
     padding-left: 15px;
     padding-right: 15px; }
     .portfolio-section .item figure {
