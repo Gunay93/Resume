@@ -15,7 +15,7 @@ $(window).on('load', function() {
             itemSelector: '.item',
             layoutMode: 'fitRows',
               fitRows: {
-                gutter: 5
+                gutter: 0
               }
         });
 
