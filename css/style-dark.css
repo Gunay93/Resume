@@ -1040,10 +1040,6 @@ header .header-mobile {
 
 .portfolio-section {
   overflow: hidden; }
-  .portfolio-section .item {
-    padding-left: 0;
-    padding-right: 0; 
-  }
 .portfolio-items{
     margin-left: 0;
     margin-right: 0;
