@@ -1044,8 +1044,12 @@ header .header-mobile {
     margin-left: 0;
     margin-right: 0;
 }
+.portfolio-items .item{
+    padding-left: 0;
+    padding-right: 0;
+}
 .portfolio-box{
-    margin:10px;
+    padding:0 10px;
 }
     .portfolio-section .item figure {
       position: relative;
