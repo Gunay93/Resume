@@ -11,10 +11,10 @@ $(window).on('load', function() {
     /*======== Isotope Portfolio Setup ========*/
     if ($('.portfolio-items').length) {
 
-        $grid = $(".portfolio-items").isotope({
-            itemSelector: '.item',
-            layoutMode: 'fitRows'
-        });
+        // $grid = $(".portfolio-items").isotope({
+        //     itemSelector: '.item',
+        //     layoutMode: 'fitRows'
+        // });
 
         // FILTER CLICK
         $('.portfolio-filter ul li').on('click', function () {
