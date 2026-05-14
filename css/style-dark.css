@@ -1044,6 +1044,11 @@ header .header-mobile {
     padding-left: 0;
     padding-right: 0; 
   }
+portfolio-items{
+    margin-left: 0;
+    margin-right: 0;
+  gap:10px
+}
     .portfolio-section .item figure {
       position: relative;
       overflow: hidden;
