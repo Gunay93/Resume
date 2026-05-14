@@ -13,10 +13,7 @@ $(window).on('load', function() {
 
         $grid = $(".portfolio-items").isotope({
             itemSelector: '.item',
-            layoutMode: 'fitRows',
-              fitRows: {
-                gutter: 0
-              }
+            layoutMode: 'fitRows'
         });
 
         // FILTER CLICK
