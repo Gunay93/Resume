@@ -1047,7 +1047,6 @@ header .header-mobile {
 .portfolio-items{
     margin-left: 0;
     margin-right: 0;
-  gap:10px
 }
     .portfolio-section .item figure {
       position: relative;
