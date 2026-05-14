@@ -1048,6 +1048,9 @@ header .header-mobile {
     margin-left: 0;
     margin-right: 0;
 }
+.portfolio-box{
+    margin:10px;
+}
     .portfolio-section .item figure {
       position: relative;
       overflow: hidden;
