@@ -1047,6 +1047,7 @@ header .header-mobile {
 .portfolio-box{
     padding:0 15px;
     display: inline-block;
+  width:100%
 }
     .portfolio-section .item figure {
       position: relative;
