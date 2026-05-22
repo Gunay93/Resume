@@ -1049,6 +1049,11 @@ header .header-mobile {
     display: inline-block;
   width:100%
 }
+.download-btn {
+    padding: 0 15px;
+    display: block;
+    margin-top: -20px;
+}
     .portfolio-section .item figure {
       position: relative;
       overflow: hidden;
