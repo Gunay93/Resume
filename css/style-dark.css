@@ -1050,9 +1050,15 @@ header .header-mobile {
   width:100%
 }
 .download-btn {
-    padding: 0 15px;
+    padding: 5px 15px;
     display: block;
-    margin-top: -20px;
+    background: #b7b31e;
+    position: absolute;
+    color: #1f1f6c;
+    left: 25px;
+    font-size: 15px;
+    bottom: 30px;
+    border-radius: 5px;
 }
     .portfolio-section .item figure {
       position: relative;
